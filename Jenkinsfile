@@ -5,24 +5,26 @@ pipeline {
         nodejs 'NodeJS 18'
     }
 
-    stage('Checkout') {
-        steps {
-            git 'https://github.com/zenitsua2416/jenkins-test.git'
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/zenitsua2416/jenkins-test.git'
+            }
         }
-    }
 
-    stage('Run files') {
-        steps {
-            sh 'node run.js'
+        stage('Run files') {
+            steps {
+                sh 'node run.js'
+            }
         }
-    }
 
-    post {
-        success {
-            echo 'Build successful'
-        }
-        failure {
-            echo 'Build failed!!'
+        post {
+            success {
+                echo 'Build successful'
+            }
+            failure {
+                echo 'Build failed!!'
+            }
         }
     }
 }
