@@ -17,14 +17,14 @@ pipeline {
                 sh 'node run.js'
             }
         }
+    }
 
-        post {
-            success {
-                echo 'Build successful'
-            }
-            failure {
-                echo 'Build failed!!'
-            }
+    post {
+        success {
+            echo 'Build successful'
+        }
+        failure {
+            echo 'Build failed!!'
         }
     }
 }
